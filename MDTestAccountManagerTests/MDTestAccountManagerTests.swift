@@ -21,6 +21,11 @@ class MDTestAccountManagerTests: XCTestCase {
         XCTAssertNotNil(account)
     }
     
+    func testAccountManagerCreaton() {
+        
+        
+    }
+    
     func testAccountEquality() {
         let account1 = Account(userName: "Some User", password: "A Long Password")
         let account2 = Account(userName: "Some User", password: "A Long Password")
@@ -45,7 +50,7 @@ class MDTestAccountManagerTests: XCTestCase {
         accountManager.register(account: accountProd, environment: "Prod")
         
         let prodAccounts = accountManager.accounts(environment: "Prod")!
-        XCTAssertEqual(prodAccounts[0].userName, "prodUser")
+        XCTAssertEqual(prodAccounts.first?.userName, "prodUser")
     }
     
     func testDeregisterAccountForEnvironment() {
@@ -57,6 +62,10 @@ class MDTestAccountManagerTests: XCTestCase {
         XCTAssertNil(accountManager.accounts(environment: "Test1"))
     }
     
+    func testDefaultEnvironment() {
+        XCTAssertEqual(TestAccountManager.defaultEnvironment ,"Test")
+    }
+    
     func testGetEnvironments() {
         let environments = TestAccountManager().environments
         XCTAssertTrue(environments.isEmpty)
@@ -66,12 +75,78 @@ class MDTestAccountManagerTests: XCTestCase {
         XCTAssertEqual(accountManager.environments, ["Env1"])
     }
     
-//    func testAaccessAccount() {
-//        
-//    }
+    func testSelectAccountBroadcasts() {
+        // Given
+        let account = Account(userName: "TestUser", password: "password")
+        accountManager.register(account: account)
+        
+        let mockBroadcaster1 = MockBroadcaster()
+        let mockBroadcaster2 = MockBroadcaster()
+        accountManager.add(broadcaster:mockBroadcaster1)
+        accountManager.add(broadcaster:mockBroadcaster2)
+        
+        // When
+        accountManager.select(account: account)
+        
+        // Then
+        XCTAssertTrue(mockBroadcaster1.didSelect(account: account))
+        XCTAssertTrue(mockBroadcaster2.didSelect(account: account))
+    }
     
-    func testSelectAccount() {
-//        XC
-        // Test that setting the current account triggers a notification or some event, i.e. have an abstract protocol on the account manager that can act as a "broadcaster"
+    func testSelectAccountNotRegisteredDoesNotBroadcast() {
+        // Given
+        let account = Account(userName: "TestUser", password: "password")
+        
+        let mockBroadcaster = MockBroadcaster()
+        accountManager.add(broadcaster:mockBroadcaster)
+        
+        // When
+        accountManager.select(account: account)
+        
+        // Then
+        XCTAssertFalse(mockBroadcaster.didSelect(account: account))
+    }
+
+    func testNotificationBroadcaster() {
+        // Given
+        let account = Account(userName: "TestUser", password: "password")
+        accountManager.register(account:account)
+        accountManager.add(broadcaster: NotificationBroadcaster())
+        let notificationObserver = NotificationObserver()
+        notificationObserver.watchNotification(name: .AccountSelected)
+        
+        
+        // When
+        accountManager.select(account: account)
+        
+        // then
+        XCTAssert(notificationObserver.receivedNotification)
+    }
+}
+
+
+class MockBroadcaster: AccountBroadcaster {
+    var selectedAccountList = Set<Account>()
+    func didSelect(account: Account) -> Bool {
+        return self.selectedAccountList.contains(account)
+    }
+    
+    // Broadcaster impl
+    func selected(account: Account, environment: String) {
+        self.selectedAccountList.insert(account)
+    }
+}
+
+class NotificationObserver {
+    var receivedNotification = false
+    
+    func watchNotification(name: Notification.Name) {
+        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
+            self.receivedNotification = true
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

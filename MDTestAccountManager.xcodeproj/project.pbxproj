@@ -11,6 +11,7 @@
 		2872E9551E4BCC46007E1F9E /* MDTestAccountManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872E9541E4BCC46007E1F9E /* MDTestAccountManagerTests.swift */; };
 		2872E9571E4BCC46007E1F9E /* MDTestAccountManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2872E9491E4BCC46007E1F9E /* MDTestAccountManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2872E9621E4BCC9C007E1F9E /* TestAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872E9611E4BCC9C007E1F9E /* TestAccountManager.swift */; };
+		2872E9641E4CE3E5007E1F9E /* Broadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872E9631E4CE3E5007E1F9E /* Broadcaster.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,7 @@
 		2872E9541E4BCC46007E1F9E /* MDTestAccountManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDTestAccountManagerTests.swift; sourceTree = "<group>"; };
 		2872E9561E4BCC46007E1F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2872E9611E4BCC9C007E1F9E /* TestAccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestAccountManager.swift; path = Source/TestAccountManager.swift; sourceTree = SOURCE_ROOT; };
+		2872E9631E4CE3E5007E1F9E /* Broadcaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Broadcaster.swift; path = Source/Broadcaster.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				2872E9611E4BCC9C007E1F9E /* TestAccountManager.swift */,
+				2872E9631E4CE3E5007E1F9E /* Broadcaster.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2872E9641E4CE3E5007E1F9E /* Broadcaster.swift in Sources */,
 				2872E9621E4BCC9C007E1F9E /* TestAccountManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

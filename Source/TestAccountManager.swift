@@ -27,12 +27,21 @@ extension Account: Hashable {
     }
 }
 
-public class TestAccountManager {
-    private typealias AccountStore = [String:Set<Account>]
+
+/// The TestAccountManager handles managing test login accounts for different environments. It also includes support for broadcasting messages in the event an account is selected (i.e. in a menu system, when an account is selected this can than broadcast the selected account and environment so that you can fill in login details automatically)
+class TestAccountManager {
+    typealias AccountStore = [String:Set<Account>]
+    var allAccounts: AccountStore = [:]
+    var broadcasters: [AccountBroadcaster] = []
     
-    private var allAccounts: AccountStore = [:]
-    private static let defaultEnvironment = "test"
-    
+    /// The default environment. This is used if you do not supply an environment when registering accounts
+    public static let defaultEnvironment = "Test"
+}
+
+
+// MARK: - Account registration, deregistration and access
+extension TestAccountManager {
+    /// All of the active environments. This will return an empty array if no accoutn is registered
     public var environments: [String] {
         get { return Array(self.allAccounts.keys) }
     }
@@ -42,7 +51,7 @@ public class TestAccountManager {
     /// - Parameters:
     ///   - account: The account to register
     ///   - environment: The environment to register the account. by default "test" will be used
-    func register(account: Account, environment: String = defaultEnvironment) {
+    public func register(account: Account, environment: String = defaultEnvironment) {
         guard var envAccounts = allAccounts[environment] else {
             allAccounts[environment] = [account]
             return
@@ -50,7 +59,13 @@ public class TestAccountManager {
         envAccounts.insert(account)
     }
     
-    func deregister(account: Account, environment: String = defaultEnvironment) {
+    
+    /// Attempts to deregister an account for a given environment. If no account is found nothing is done.
+    ///
+    /// - Parameters:
+    ///   - account: The account to deregister
+    ///   - environment: The environment the account is for
+    public func deregister(account: Account, environment: String = defaultEnvironment) {
         guard var setOfAccounts = allAccounts[environment] else {
             return
         }
@@ -63,11 +78,35 @@ public class TestAccountManager {
         }
     }
     
-    func accounts(environment: String = defaultEnvironment) -> [Account]? {
+    
+    /// Optionally returns an array of accounts for a gien environment. If no environemnt or no accounts in an environment are found, nil is returned.
+    ///
+    /// - Parameter environment: The environment to check
+    /// - Returns: A Set of accounts for an environment, or nil
+    public func accounts(environment: String = defaultEnvironment) -> Set<Account>? {
         guard let envAccounts = self.allAccounts[environment] else {
             return nil
         }
-        return Array(envAccounts)
+        return envAccounts
     }
 }
 
+
+// MARK: - Account selection and broadcasting
+extension TestAccountManager {
+    public func add(broadcaster: AccountBroadcaster) {
+        self.broadcasters.append(broadcaster)
+    }
+    
+    public func select(account: Account, environment: String = defaultEnvironment) {
+        guard let accounts = self.accounts(environment: environment) else {
+            return
+        }
+        guard accounts.contains(account) else {
+            return
+        }
+        for broadcaster in self.broadcasters {
+            broadcaster.selected(account: account, environment: environment)
+        }
+    }
+}
