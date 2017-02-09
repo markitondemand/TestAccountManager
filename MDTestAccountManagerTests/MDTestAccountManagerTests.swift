@@ -23,6 +23,7 @@ class MDTestAccountManagerTests: XCTestCase {
     
     func testAccountManagerCreaton() {
         
+//        let manager = TestAccountManager()
         
     }
     
@@ -120,7 +121,11 @@ class MDTestAccountManagerTests: XCTestCase {
         accountManager.select(account: account)
         
         // then
-        XCTAssert(notificationObserver.receivedNotification)
+        XCTAssertTrue(notificationObserver.receivedNotification)
+        let selectedAccount = notificationObserver.payload["Account"] as! Account
+        let environment = notificationObserver.payload["Environment"] as! String
+        XCTAssertEqual(selectedAccount, account)
+        XCTAssertEqual(environment, "Test")
     }
 }
 
@@ -139,10 +144,12 @@ class MockBroadcaster: AccountBroadcaster {
 
 class NotificationObserver {
     var receivedNotification = false
+    var payload: [AnyHashable:Any] = [:]
     
     func watchNotification(name: Notification.Name) {
-        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { _ in
+        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notif in
             self.receivedNotification = true
+            self.payload = notif.userInfo!
         }
     }
     

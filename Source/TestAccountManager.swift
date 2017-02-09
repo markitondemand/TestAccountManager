@@ -79,7 +79,7 @@ extension TestAccountManager {
     }
     
     
-    /// Optionally returns an array of accounts for a gien environment. If no environemnt or no accounts in an environment are found, nil is returned.
+    /// Optionally returns an array of accounts for a given environment. If no environemnt or no accounts in an environment are found, nil is returned.
     ///
     /// - Parameter environment: The environment to check
     /// - Returns: A Set of accounts for an environment, or nil
