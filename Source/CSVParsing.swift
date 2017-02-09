@@ -38,7 +38,7 @@ extension TestAccountManager {
         do {
             parsedCSV = try CSV(stream: stream, hasHeaderRow: true, trimFields: false, delimiter: Token.Delimiter)
         } catch let error {
-            print("Error loadingthe CSV data - CSVError:\(error)")
+            print("Error loading the CSV data - CSVError:\(error)")
             return nil
         }
         
@@ -63,6 +63,7 @@ extension TestAccountManager {
                 continue
             }
             accounts.insert(account)
+            structure[environment] = accounts
         }
         
         self.init(accounts: structure)

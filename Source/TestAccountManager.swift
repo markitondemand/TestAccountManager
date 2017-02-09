@@ -37,7 +37,7 @@ class TestAccountManager {
     /// The default environment. This is used if you do not supply an environment when registering accounts
     public static let defaultEnvironment = "Test"
     
-    init(accounts: [String: Set<Account>] = [:]) {
+    public init(accounts: [String: Set<Account>] = [:]) {
         allAccounts = accounts
     }
 }
