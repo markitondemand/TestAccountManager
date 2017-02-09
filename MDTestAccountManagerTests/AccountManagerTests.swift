@@ -1,15 +1,10 @@
-//
-//  MDTestAccountManagerTests.swift
-//  MDTestAccountManagerTests
-//
-//  Created by Michael Leber on 2/8/17.
 //  Copyright © 2017 Markit. All rights reserved.
 //
 
 import XCTest
 @testable import MDTestAccountManager
 
-class MDTestAccountManagerTests: XCTestCase {
+class TestAccountManagerTests: XCTestCase {
     var accountManager: TestAccountManager!
     override func setUp() {
         accountManager = TestAccountManager()

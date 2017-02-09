@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		283BA39D1E4D100700861967 /* CSVParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283BA39C1E4D100700861967 /* CSVParsing.swift */; };
+		283BA39F1E4D150000861967 /* TestCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283BA39E1E4D150000861967 /* TestCSV.swift */; };
+		283BA3A11E4D159400861967 /* accounts.csv in Resources */ = {isa = PBXBuildFile; fileRef = 283BA3A01E4D159400861967 /* accounts.csv */; };
 		2872E9501E4BCC46007E1F9E /* MDTestAccountManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2872E9461E4BCC46007E1F9E /* MDTestAccountManager.framework */; };
-		2872E9551E4BCC46007E1F9E /* MDTestAccountManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872E9541E4BCC46007E1F9E /* MDTestAccountManagerTests.swift */; };
+		2872E9551E4BCC46007E1F9E /* AccountManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872E9541E4BCC46007E1F9E /* AccountManagerTests.swift */; };
 		2872E9571E4BCC46007E1F9E /* MDTestAccountManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2872E9491E4BCC46007E1F9E /* MDTestAccountManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2872E9621E4BCC9C007E1F9E /* TestAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872E9611E4BCC9C007E1F9E /* TestAccountManager.swift */; };
 		2872E9641E4CE3E5007E1F9E /* Broadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872E9631E4CE3E5007E1F9E /* Broadcaster.swift */; };
@@ -27,11 +30,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		283BA39C1E4D100700861967 /* CSVParsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSVParsing.swift; path = Source/CSVParsing.swift; sourceTree = SOURCE_ROOT; };
+		283BA39E1E4D150000861967 /* TestCSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCSV.swift; sourceTree = "<group>"; };
+		283BA3A01E4D159400861967 /* accounts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = accounts.csv; path = ../../../Desktop/accounts.csv; sourceTree = "<group>"; };
 		2872E9461E4BCC46007E1F9E /* MDTestAccountManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDTestAccountManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2872E9491E4BCC46007E1F9E /* MDTestAccountManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDTestAccountManager.h; sourceTree = "<group>"; };
 		2872E94A1E4BCC46007E1F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2872E94F1E4BCC46007E1F9E /* MDTestAccountManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MDTestAccountManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2872E9541E4BCC46007E1F9E /* MDTestAccountManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDTestAccountManagerTests.swift; sourceTree = "<group>"; };
+		2872E9541E4BCC46007E1F9E /* AccountManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagerTests.swift; sourceTree = "<group>"; };
 		2872E9561E4BCC46007E1F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2872E9611E4BCC9C007E1F9E /* TestAccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestAccountManager.swift; path = Source/TestAccountManager.swift; sourceTree = SOURCE_ROOT; };
 		2872E9631E4CE3E5007E1F9E /* Broadcaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Broadcaster.swift; path = Source/Broadcaster.swift; sourceTree = SOURCE_ROOT; };
@@ -64,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		283BA3A21E4D159600861967 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				283BA3A01E4D159400861967 /* accounts.csv */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		2872E93C1E4BCC46007E1F9E = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +111,9 @@
 		2872E9531E4BCC46007E1F9E /* MDTestAccountManagerTests */ = {
 			isa = PBXGroup;
 			children = (
-				2872E9541E4BCC46007E1F9E /* MDTestAccountManagerTests.swift */,
+				283BA3A21E4D159600861967 /* Resources */,
+				2872E9541E4BCC46007E1F9E /* AccountManagerTests.swift */,
+				283BA39E1E4D150000861967 /* TestCSV.swift */,
 				2872E9561E4BCC46007E1F9E /* Info.plist */,
 			);
 			path = MDTestAccountManagerTests;
@@ -108,6 +124,7 @@
 			children = (
 				2872E9611E4BCC9C007E1F9E /* TestAccountManager.swift */,
 				2872E9631E4CE3E5007E1F9E /* Broadcaster.swift */,
+				283BA39C1E4D100700861967 /* CSVParsing.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -240,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283BA3A11E4D159400861967 /* accounts.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +348,7 @@
 			files = (
 				2872E9641E4CE3E5007E1F9E /* Broadcaster.swift in Sources */,
 				2872E9621E4BCC9C007E1F9E /* TestAccountManager.swift in Sources */,
+				283BA39D1E4D100700861967 /* CSVParsing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2872E9551E4BCC46007E1F9E /* MDTestAccountManagerTests.swift in Sources */,
+				283BA39F1E4D150000861967 /* TestCSV.swift in Sources */,
+				2872E9551E4BCC46007E1F9E /* AccountManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +518,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 28F1CCE5181BE5CA4B1A5D95 /* Pods-MDTestAccountManagerTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = PM8Y4J45MK;
 				INFOPLIST_FILE = MDTestAccountManagerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -512,7 +531,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3ABE7F0769382D0837C400F8 /* Pods-MDTestAccountManagerTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = PM8Y4J45MK;
 				INFOPLIST_FILE = MDTestAccountManagerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -541,6 +559,7 @@
 				2872E95C1E4BCC46007E1F9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2872E95D1E4BCC46007E1F9E /* Build configuration list for PBXNativeTarget "MDTestAccountManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +568,7 @@
 				2872E95F1E4BCC46007E1F9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

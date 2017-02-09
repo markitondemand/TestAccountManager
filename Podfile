@@ -6,10 +6,12 @@ target 'MDTestAccountManager' do
   use_frameworks!
 
   # Pods for MDTestAccountManager
+  pod 'CSV.swift'
 
   target 'MDTestAccountManagerTests' do
     inherit! :search_paths
     # Pods for testing
+    
   end
 
 end
