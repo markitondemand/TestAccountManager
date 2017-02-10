@@ -1,32 +1,7 @@
-//
-//  TestAccountManager.swift
-//  MDTestAccountManager
-//
-//  Created by Michael Leber on 2/8/17.
 //  Copyright © 2017 Markit. All rights reserved.
 //
 
 import Foundation
-
-
-
-public struct Account {
-    let userName: String
-    let password: String
-}
-
-extension Account: Equatable {
-    public static func ==(lhs: Account, rhs: Account) -> Bool {
-        return (lhs.userName == rhs.userName) && (lhs.password == rhs.password)
-    }
-}
-
-extension Account: Hashable {
-    public var hashValue: Int {
-        return "\(self.userName)\(self.password)".hashValue
-    }
-}
-
 
 /// The TestAccountManager handles managing test login accounts for different environments. It also includes support for broadcasting messages in the event an account is selected (i.e. in a menu system, when an account is selected this can than broadcast the selected account and environment so that you can fill in login details automatically)
 class TestAccountManager {
@@ -97,13 +72,22 @@ extension TestAccountManager {
     }
 }
 
-
 // MARK: - Account selection and broadcasting
 extension TestAccountManager {
+    
+    /// Adds a new broadcaster that will be alerted when an account is selected. Please see AccountBroadcaster for details
+    ///
+    /// - Parameter broadcaster: The broadcaster to be added
     public func add(broadcaster: AccountBroadcaster) {
         self.broadcasters.append(broadcaster)
     }
     
+    
+    /// Select an account. The account must be already registered for the given environment or nothing will be done. This will initiate a message to all broadcaster of what account was selected. Call this from your UI if you allow the selection of an account from a table view.
+    ///
+    /// - Parameters:
+    ///   - account: The account was selected.
+    ///   - environment: The environment the account belongs to.
     public func select(account: Account, environment: String = defaultEnvironment) {
         guard let accounts = self.accounts(environment: environment) else {
             return

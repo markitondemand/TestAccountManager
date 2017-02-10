@@ -117,8 +117,8 @@ class TestAccountManagerTests: XCTestCase {
         
         // then
         XCTAssertTrue(notificationObserver.receivedNotification)
-        let selectedAccount = notificationObserver.payload["Account"] as! Account
-        let environment = notificationObserver.payload["Environment"] as! String
+        let selectedAccount = notificationObserver.payload[AccountSelectedKeys.Account] as! Account
+        let environment = notificationObserver.payload[AccountSelectedKeys.Environment] as! String
         XCTAssertEqual(selectedAccount, account)
         XCTAssertEqual(environment, "Test")
     }
