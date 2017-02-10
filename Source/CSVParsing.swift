@@ -36,7 +36,7 @@ extension TestAccountManager {
     /// "value1","value2","value3"\n
     /// ```
     /// Nil will be returned and an error logged to the console in the event of a CSV parsing error
-    public onvenience init?(stream: InputStream) {
+    public convenience init?(stream: InputStream) {
         var parsedCSV: CSV
         do {
             parsedCSV = try CSV(stream: stream, hasHeaderRow: true, trimFields: false, delimiter: Token.Delimiter)
