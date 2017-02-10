@@ -8,7 +8,7 @@ import CSV
 
 // MARK: - CSV Support
 extension TestAccountManager {
-    struct Token {
+    fileprivate struct Token {
         static let UserName = "UserName"
         static let Password = "Password"
         static let Environment = "Environment"
@@ -51,7 +51,7 @@ extension TestAccountManager {
         self.init(parsedCSV: parsedCSV)
     }
     
-    // Helper initializer that coaleases the above initializers.
+    // Helper initializer that coalesces the above initializers.
     private convenience init?(parsedCSV: CSV) {
         var structure: [String: Set<Account>] = [:]
         var parsedCSV = parsedCSV

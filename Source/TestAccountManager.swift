@@ -4,12 +4,12 @@
 import Foundation
 
 /// The TestAccountManager handles managing test login accounts for different environments. It also includes support for broadcasting messages in the event an account is selected (i.e. in a menu system, when an account is selected this can than broadcast the selected account and environment so that you can fill in login details automatically)
-class TestAccountManager {
-    typealias AccountStore = [String:Set<Account>]
-    var allAccounts: AccountStore = [:]
+public class TestAccountManager {
+    internal typealias AccountStore = [String:Set<Account>]
+    internal var allAccounts: AccountStore = [:]
     // Default use the NotificationBroadcaster.
     // TOOD: unit tests/ possibly better DI for this (maybe someone doesnt want any broadcaster? or just there own?)
-    var broadcasters: [AccountBroadcaster] = [NotificationBroadcaster()]
+    internal var broadcasters: [AccountBroadcaster] = [NotificationBroadcaster()]
     
     /// The default environment. This is used if you do not supply an environment when registering accounts
     public static let defaultEnvironment = "Test"
