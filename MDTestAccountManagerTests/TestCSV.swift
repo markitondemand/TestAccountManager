@@ -26,6 +26,7 @@ class TestCSV: XCTestCase {
         
         let expectedAcc = Set([Account(userName: "Test1", password: "pass123"), Account(userName: "Test2", password: "pass123")])
         let expectedProd = Set([Account(userName: "Prod1", password: "pass123"), Account(userName: "Prod2", password: "pass123")])
+        
         // Then
         XCTAssertEqual(accountManager.accounts(environment: "Acc"), expectedAcc)
         XCTAssertEqual(accountManager.accounts(environment: "Prod"), expectedProd)
