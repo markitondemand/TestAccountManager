@@ -32,7 +32,9 @@ extension Account: Hashable {
 class TestAccountManager {
     typealias AccountStore = [String:Set<Account>]
     var allAccounts: AccountStore = [:]
-    var broadcasters: [AccountBroadcaster] = []
+    // Default use the NotificationBroadcaster.
+    // TOOD: unit tests/ possibly better DI for this (maybe someone doesnt want any broadcaster? or just there own?)
+    var broadcasters: [AccountBroadcaster] = [NotificationBroadcaster()]
     
     /// The default environment. This is used if you do not supply an environment when registering accounts
     public static let defaultEnvironment = "Test"

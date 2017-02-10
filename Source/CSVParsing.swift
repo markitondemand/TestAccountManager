@@ -12,10 +12,13 @@ extension TestAccountManager {
         static let Delimiter: UnicodeScalar = "|"
     }
     
-    /// This initializaer expects a string of CSV Data in the following form
-    /// Header - "Environment","UserName","Password"\n
-    /// All other lines - "value1","value2","value3"\n
-    convenience init?(CSVData: String) {
+    /// This initializaer expects a string of CSV data with the following form
+    /// ```
+    /// "Environment","UserName","Password"\n
+    /// "value1","value2","value3"\n
+    /// ```
+    /// Nil will be returned and an error logged to the console in the event of a CSV parsing error
+    public convenience init?(CSVData: String) {
         var parsedCSV: CSV
         do {
              parsedCSV = try CSV(string: CSVData, hasHeaderRow: true, trimFields: false, delimiter: Token.Delimiter)
@@ -32,8 +35,8 @@ extension TestAccountManager {
     /// "Environment","UserName","Password"\n
     /// "value1","value2","value3"\n
     /// ```
-    /// Nil will be returned and an error logged to the console in the event
-    convenience init?(stream: InputStream) {
+    /// Nil will be returned and an error logged to the console in the event of a CSV parsing error
+    public onvenience init?(stream: InputStream) {
         var parsedCSV: CSV
         do {
             parsedCSV = try CSV(stream: stream, hasHeaderRow: true, trimFields: false, delimiter: Token.Delimiter)
