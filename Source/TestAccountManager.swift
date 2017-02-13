@@ -12,7 +12,7 @@ public class TestAccountManager {
     internal var broadcasters: [AccountBroadcaster] = [NotificationBroadcaster()]
     
     /// The default environment. This is used if you do not supply an environment when registering accounts
-    public static let defaultEnvironment = "Test"
+    public static let DefaultEnvironment = "Test"
     
     public init(accounts: [String: Set<Account>] = [:]) {
         allAccounts = accounts
@@ -32,7 +32,7 @@ extension TestAccountManager {
     /// - Parameters:
     ///   - account: The account to register
     ///   - environment: The environment to register the account. by default "test" will be used
-    public func register(account: Account, environment: String = defaultEnvironment) {
+    public func register(account: Account, environment: String = DefaultEnvironment) {
         guard var envAccounts = allAccounts[environment] else {
             allAccounts[environment] = [account]
             return
@@ -46,7 +46,7 @@ extension TestAccountManager {
     /// - Parameters:
     ///   - account: The account to deregister
     ///   - environment: The environment the account is for
-    public func deregister(account: Account, environment: String = defaultEnvironment) {
+    public func deregister(account: Account, environment: String = DefaultEnvironment) {
         guard var setOfAccounts = allAccounts[environment] else {
             return
         }
@@ -64,7 +64,7 @@ extension TestAccountManager {
     ///
     /// - Parameter environment: The environment to check
     /// - Returns: A Set of accounts for an environment, or nil
-    public func accounts(environment: String = defaultEnvironment) -> Set<Account>? {
+    public func accounts(environment: String = DefaultEnvironment) -> Set<Account>? {
         guard let envAccounts = self.allAccounts[environment] else {
             return nil
         }
@@ -88,7 +88,7 @@ extension TestAccountManager {
     /// - Parameters:
     ///   - account: The account was selected.
     ///   - environment: The environment the account belongs to.
-    public func select(account: Account, environment: String = defaultEnvironment) {
+    public func select(account: Account, environment: String = DefaultEnvironment) {
         guard let accounts = self.accounts(environment: environment) else {
             return
         }
