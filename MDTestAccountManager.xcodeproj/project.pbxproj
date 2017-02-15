@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		281F63741E4E362D008F8A7F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F63731E4E362D008F8A7F /* Account.swift */; };
+		283B94EA1E53B4C400BD33DD /* AccountManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B94E91E53B4C400BD33DD /* AccountManagerViewController.swift */; };
+		283B94EC1E53B62D00BD33DD /* TestAccountStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283B94EB1E53B62D00BD33DD /* TestAccountStoryboard.storyboard */; };
 		283BA39D1E4D100700861967 /* CSVParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283BA39C1E4D100700861967 /* CSVParsing.swift */; };
 		283BA39F1E4D150000861967 /* TestCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283BA39E1E4D150000861967 /* TestCSV.swift */; };
 		283BA3A11E4D159400861967 /* accounts.csv in Resources */ = {isa = PBXBuildFile; fileRef = 283BA3A01E4D159400861967 /* accounts.csv */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		281F63731E4E362D008F8A7F /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Source/Account.swift; sourceTree = SOURCE_ROOT; };
+		283B94E91E53B4C400BD33DD /* AccountManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagerViewController.swift; path = Source/AccountManagerViewController.swift; sourceTree = SOURCE_ROOT; };
+		283B94EB1E53B62D00BD33DD /* TestAccountStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TestAccountStoryboard.storyboard; path = Source/TestAccountStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		283BA39C1E4D100700861967 /* CSVParsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSVParsing.swift; path = Source/CSVParsing.swift; sourceTree = SOURCE_ROOT; };
 		283BA39E1E4D150000861967 /* TestCSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCSV.swift; sourceTree = "<group>"; };
 		283BA3A01E4D159400861967 /* accounts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = accounts.csv; path = ../../../Desktop/accounts.csv; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				281F63731E4E362D008F8A7F /* Account.swift */,
 				2872E9631E4CE3E5007E1F9E /* Broadcaster.swift */,
 				283BA39C1E4D100700861967 /* CSVParsing.swift */,
+				283B94E91E53B4C400BD33DD /* AccountManagerViewController.swift */,
+				283B94EB1E53B62D00BD33DD /* TestAccountStoryboard.storyboard */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283B94EC1E53B62D00BD33DD /* TestAccountStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +360,7 @@
 				281F63741E4E362D008F8A7F /* Account.swift in Sources */,
 				2872E9621E4BCC9C007E1F9E /* TestAccountManager.swift in Sources */,
 				283BA39D1E4D100700861967 /* CSVParsing.swift in Sources */,
+				283B94EA1E53B4C400BD33DD /* AccountManagerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

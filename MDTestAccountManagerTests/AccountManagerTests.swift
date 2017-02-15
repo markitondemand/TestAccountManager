@@ -59,7 +59,7 @@ class TestAccountManagerTests: XCTestCase {
     }
     
     func testDefaultEnvironment() {
-        XCTAssertEqual(TestAccountManager.defaultEnvironment ,"Test")
+        XCTAssertEqual(TestAccountManager.DefaultEnvironment ,"Test")
     }
     
     func testGetEnvironments() {
@@ -121,6 +121,20 @@ class TestAccountManagerTests: XCTestCase {
         let environment = notificationObserver.payload[AccountSelectedKeys.Environment] as! String
         XCTAssertEqual(selectedAccount, account)
         XCTAssertEqual(environment, "Test")
+    }
+    
+    func testIndexPathAccessors() {
+        let accountA = Account(userName: "TestUser", password: "password")
+        let accountB = Account(userName: "ProdUser", password: "password")
+        let accountC = Account(userName: "AProdUser", password: "password")
+        accountManager.register(account: accountA, environment: "test")
+        accountManager.register(account: accountB, environment: "prod")
+        accountManager.register(account: accountC, environment: "prod")
+        
+        XCTAssertEqual(accountManager.account(indexPath: IndexPath(row: 1, section: 1)), accountB)
+        XCTAssertEqual(accountManager.account(indexPath: IndexPath(row: 0, section: 0)), accountA)
+        XCTAssertNil(accountManager.account(indexPath: IndexPath(row: 99, section: 0)))
+        XCTAssertNil(accountManager.account(indexPath: IndexPath(row: 0, section: 99)))
     }
 }
 

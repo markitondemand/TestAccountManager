@@ -38,6 +38,7 @@ extension TestAccountManager {
             return
         }
         envAccounts.insert(account)
+        allAccounts[environment] = envAccounts
     }
     
     
@@ -100,3 +101,48 @@ extension TestAccountManager {
         }
     }
 }
+
+// MARK: - IndexPath support
+extension TestAccountManager {
+    
+    /// This method will accept an IndexPath and attempt to return an account for it. This method will sort the environment as sections and then sort the accounts by user name for rows.  This will return nil if no account is found.
+    ///
+    /// - Parameter indexPath: The IndexPath to search
+    /// - Returns: A matching account or nil
+    public func account(indexPath: IndexPath) -> Account? {
+        guard let environment = self.mapSectionNumberToEnvironment(section: indexPath.section) else {
+            return nil
+        }
+        
+        guard let accounts = self.accounts(environment: environment) else {
+            return nil
+        }
+        
+        return accounts.sorted(by: {
+            return $0.userName < $1.userName
+        })[safe: indexPath.row]
+    }
+    
+    /// Attempts to return the enviropnment from an integer index. This is done by sorting the environments in ascending order. If no environment is found (i,e, out of bounds), nil is returned
+    ///
+    /// - Parameter index: The index to check
+    /// - Returns: A matching environment, or nil
+    public func environment(index: Int) -> String? {
+        return self.mapSectionNumberToEnvironment(section: index)
+    }
+    
+    
+    /// Selects an account at a given indexPath. If no account is found than nothing is done.
+    ///
+    /// - Parameter indexPath: The indexpath to select
+    public func selectAccount(indexPath: IndexPath) {
+        
+//        self.select(account: <#T##Account#>)
+    }
+    
+    private func mapSectionNumberToEnvironment(section: Int) -> String? {
+        let sortedEnvironments = self.environments.sorted(by: >)
+        return sortedEnvironments[safe: section]
+    }
+}
+
