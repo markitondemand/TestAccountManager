@@ -5,6 +5,9 @@ import Foundation
 
 /// The TestAccountManager handles managing test login accounts for different environments. It also includes support for broadcasting messages in the event an account is selected (i.e. in a menu system, when an account is selected this can than broadcast the selected account and environment so that you can fill in login details automatically)
 public class TestAccountManager {
+    public typealias EnvironmentAccount = (environment: String, account: Account)
+    
+    //TOOD: can refactor this to a single "set" of "EnvironmentAccount" tuple - however, we need to wrap the tuple in a struct as you cant hashable a tuple
     internal typealias AccountStore = [String:Set<Account>]
     internal var allAccounts: AccountStore = [:]
     // Default use the NotificationBroadcaster.
@@ -40,7 +43,6 @@ extension TestAccountManager {
         envAccounts.insert(account)
         allAccounts[environment] = envAccounts
     }
-    
     
     /// Attempts to deregister an account for a given environment. If no account is found nothing is done.
     ///
@@ -100,6 +102,10 @@ extension TestAccountManager {
             broadcaster.selected(account: account, environment: environment)
         }
     }
+    
+    public func select(pair: EnvironmentAccount) {
+        self.select(account: pair.account, environment:pair.environment)
+    }
 }
 
 // MARK: - IndexPath support
@@ -109,18 +115,22 @@ extension TestAccountManager {
     ///
     /// - Parameter indexPath: The IndexPath to search
     /// - Returns: A matching account or nil
-    public func account(indexPath: IndexPath) -> Account? {
+//    public func account(indexPath: IndexPath) -> Account? {
+//        return self.account(indexPath: indexPath)?.0
+//    }
+    
+    public func account(indexPath: IndexPath) -> EnvironmentAccount? {
         guard let environment = self.mapSectionNumberToEnvironment(section: indexPath.section) else {
             return nil
         }
         
-        guard let accounts = self.accounts(environment: environment) else {
+        guard let account = self.accounts(environment: environment)?.sorted(by: {
+            return $0.userName < $1.userName
+        })[safe: indexPath.row] else {
             return nil
         }
         
-        return accounts.sorted(by: {
-            return $0.userName < $1.userName
-        })[safe: indexPath.row]
+        return (environment, account)
     }
     
     /// Attempts to return the enviropnment from an integer index. This is done by sorting the environments in ascending order. If no environment is found (i,e, out of bounds), nil is returned
@@ -131,13 +141,22 @@ extension TestAccountManager {
         return self.mapSectionNumberToEnvironment(section: index)
     }
     
+    public func countOfAccountsAt(section: Int) -> Int? {
+        guard let environment = self.mapSectionNumberToEnvironment(section: section) else {
+            return nil
+        }
+        return self.accounts(environment: environment)?.count
+    }
     
     /// Selects an account at a given indexPath. If no account is found than nothing is done.
     ///
     /// - Parameter indexPath: The indexpath to select
     public func selectAccount(indexPath: IndexPath) {
+        guard let pair = self.account(indexPath: indexPath) else {
+            return
+        }
         
-//        self.select(account: <#T##Account#>)
+        self.select(pair: pair)
     }
     
     private func mapSectionNumberToEnvironment(section: Int) -> String? {

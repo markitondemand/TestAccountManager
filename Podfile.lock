@@ -1,15 +1,22 @@
 PODS:
   - CSV.swift (1.1.2)
   - MD-Extensions (0.3)
+  - MDTestAccountManager (0.3):
+    - CSV.swift (~> 1.0)
+    - MD-Extensions
 
 DEPENDENCIES:
-  - CSV.swift
-  - MD-Extensions
+  - MDTestAccountManager (from `./MDTestAccountManager.podspec`)
+
+EXTERNAL SOURCES:
+  MDTestAccountManager:
+    :path: "./MDTestAccountManager.podspec"
 
 SPEC CHECKSUMS:
   CSV.swift: 0aad3b06980034c8fa296456b708ac9128ebbdf9
   MD-Extensions: 2581966459488b28bfde69897052d5d29ca274fe
+  MDTestAccountManager: b17af42ebc6e98c646010853e2928328cb711b44
 
-PODFILE CHECKSUM: 0615385ecdfd8e0cb5dbe4bbc775b73db6b03bf7
+PODFILE CHECKSUM: a3005e9186a9e39586c1f1d82ea11943f3b2dba1
 
 COCOAPODS: 1.2.0

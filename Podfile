@@ -4,13 +4,18 @@
 source 'ssh://git@stash.mgmt.local/ioslib/markitpodspecs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
+target 'Example' do
+  use_frameworks!
+  
+  pod 'MDTestAccountManager', :path => './MDTestAccountManager.podspec'
+end
+
 target 'MDTestAccountManager' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for MDTestAccountManager
-  pod 'CSV.swift'
-  pod 'MD-Extensions'
+  pod 'MDTestAccountManager', :path => './MDTestAccountManager.podspec'
 
   target 'MDTestAccountManagerTests' do
     inherit! :search_paths

@@ -5,17 +5,22 @@ import UIKit
 import MD_Extensions
 
 extension TestAccountManager {
-    
+    static let StoryboardName = "TestAccountStoryboard"
     /// Generates a simple UI to represent and interact with the TestAccountManager
     ///
     /// - Returns: The viewcontroller to present in your UI
-    public func generateViewController() -> AccountManagerViewController {
-        return AccountManagerViewController(testAccountManager: self)
+    public func generateViewController() -> UIViewController {
+        let podBundle = Bundle(for: type(of:self))
+        let URL = podBundle.url(forResource: "MDTestAccountManager", withExtension: "bundle")!
+        let resourceBundle = Bundle(url: URL)
+        let controller = UIStoryboard(name: TestAccountManager.StoryboardName, bundle: resourceBundle).instantiateInitialViewController() as! AccountManagerViewController
+        controller.testAccountManager = self
+        return controller
     }
 }
 
-public class AccountManagerViewController: UITableViewController {
-    let testAccountManager: TestAccountManager
+class AccountManagerViewController: UITableViewController {
+    var testAccountManager: TestAccountManager!
     
     public init(testAccountManager: TestAccountManager) {
         self.testAccountManager = testAccountManager
@@ -23,15 +28,19 @@ public class AccountManagerViewController: UITableViewController {
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     override public func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(AccountManagerViewController.dismissController))
     }
     
+    func dismissController() {
+        self.dismiss(animated: true, completion: nil)
+    }
 //    public class AccountTableViewCell: UITableViewCell {
 //    }
 }
@@ -41,23 +50,32 @@ extension AccountManagerViewController {
         static let AccountCell = "AccountCellIdentifier"
     }
     
-    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let account = self.testAccountManager.account(indexPath: indexPath)!.account
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.AccountCell)!
+        cell.textLabel?.text = account.userName
+        
         return cell
     }
     
-    override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let environment = self.testAccountManager.environment(index: section) else {
-            return 0
-        }
-        guard let accounts = self.testAccountManager.accounts(environment: environment) else {
-            return 0
-        }
-        
-        return accounts.count
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.testAccountManager.environments.count
     }
     
-    override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.testAccountManager.countOfAccountsAt(section: section) ?? 0
     }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.testAccountManager.environment(index: section)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.testAccountManager.selectAccount(indexPath: indexPath)
+        self.dismissController()
+    }
+    
+    
 }

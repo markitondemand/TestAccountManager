@@ -131,8 +131,8 @@ class TestAccountManagerTests: XCTestCase {
         accountManager.register(account: accountB, environment: "prod")
         accountManager.register(account: accountC, environment: "prod")
         
-        XCTAssertEqual(accountManager.account(indexPath: IndexPath(row: 1, section: 1)), accountB)
-        XCTAssertEqual(accountManager.account(indexPath: IndexPath(row: 0, section: 0)), accountA)
+        XCTAssertEqual(accountManager.account(indexPath: IndexPath(row: 1, section: 1))?.account, accountB)
+        XCTAssertEqual(accountManager.account(indexPath: IndexPath(row: 0, section: 0))?.account, accountA)
         XCTAssertNil(accountManager.account(indexPath: IndexPath(row: 99, section: 0)))
         XCTAssertNil(accountManager.account(indexPath: IndexPath(row: 0, section: 99)))
     }

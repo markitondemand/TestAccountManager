@@ -11,6 +11,9 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'Source/*.swift'
+  s.resource_bundles = {
+    'MDTestAccountManager' => ['Resources/*.storyboard']
+  }
   
   s.dependency 'CSV.swift', '~> 1.0'
   s.dependency 'MD-Extensions'
