@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/*.swift'
   
   s.dependency 'CSV.swift', '~> 1.0'
+  s.dependency 'MD-Extensions'
 end

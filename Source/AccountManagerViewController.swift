@@ -2,7 +2,7 @@
 //
 
 import UIKit
-
+import MD_Extensions
 
 extension TestAccountManager {
     
@@ -59,17 +59,5 @@ extension AccountManagerViewController {
     
     override public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    }
-    
-
-}
-
-
-// TOOD: port to MD-Extensions
-extension Collection where Indices.Iterator.Element == Index {
-    
-    /// Returns the element at the specified index iff it is within bounds, otherwise nil.
-    subscript (safe index: Index) -> Generator.Element? {
-        return indices.contains(index) ? self[index] : nil
     }
 }

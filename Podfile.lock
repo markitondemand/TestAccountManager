@@ -1,12 +1,15 @@
 PODS:
   - CSV.swift (1.1.2)
+  - MD-Extensions (0.3)
 
 DEPENDENCIES:
   - CSV.swift
+  - MD-Extensions
 
 SPEC CHECKSUMS:
   CSV.swift: 0aad3b06980034c8fa296456b708ac9128ebbdf9
+  MD-Extensions: 2581966459488b28bfde69897052d5d29ca274fe
 
-PODFILE CHECKSUM: 19420aa706a3de15c1d6ffd928ad146cadf0b25b
+PODFILE CHECKSUM: 0615385ecdfd8e0cb5dbe4bbc775b73db6b03bf7
 
 COCOAPODS: 1.2.0
