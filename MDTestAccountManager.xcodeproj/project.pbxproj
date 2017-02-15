@@ -49,6 +49,7 @@
 		280673E91E54D80600CD3518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		280673ED1E54DB3700CD3518 /* Accounts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Accounts.csv; sourceTree = "<group>"; };
 		280673EF1E5504F900CD3518 /* TestAccountStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TestAccountStoryboard.storyboard; path = Resources/TestAccountStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
+		280673F21E5514F600CD3518 /* MDTestAccountManager.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; indentWidth = 2; path = MDTestAccountManager.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		281F63731E4E362D008F8A7F /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Source/Account.swift; sourceTree = SOURCE_ROOT; };
 		283B94E91E53B4C400BD33DD /* AccountManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountManagerViewController.swift; path = Source/AccountManagerViewController.swift; sourceTree = SOURCE_ROOT; };
 		283BA39C1E4D100700861967 /* CSVParsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSVParsing.swift; path = Source/CSVParsing.swift; sourceTree = SOURCE_ROOT; };
@@ -135,6 +136,7 @@
 		2872E93C1E4BCC46007E1F9E = {
 			isa = PBXGroup;
 			children = (
+				280673F21E5514F600CD3518 /* MDTestAccountManager.podspec */,
 				280673DC1E54D80600CD3518 /* Example */,
 				2872E9481E4BCC46007E1F9E /* MDTestAccountManager */,
 				2872E9531E4BCC46007E1F9E /* MDTestAccountManagerTests */,
