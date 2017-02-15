@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'MDTestAccountManager'
-  s.version = '0.3'
+  s.version = '0.4'
   s.license = 'Proprietary'
   s.summary = 'Manage test accounts for application logins.'
   s.description = "Manage test accounts for application logins. Also includes multiple environment support and broadcasts a notification when an account is selected'"
@@ -11,6 +11,10 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'Source/*.swift'
+  s.resource_bundles = {
+    'MDTestAccountManager' => ['Resources/*.storyboard']
+  }
   
   s.dependency 'CSV.swift', '~> 1.0'
+  s.dependency 'MD-Extensions'
 end

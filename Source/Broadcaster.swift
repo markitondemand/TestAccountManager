@@ -6,12 +6,17 @@ import Foundation
 
 /// This protocol defines the contract for clients to be alerted in the event a new account is selcted in the TestAccountManager
 public protocol AccountBroadcaster {
+    /// Called by the TestAccountManager when an account is selected
+    ///
+    /// - Parameters:
+    ///   - account: The account that was selected
+    ///   - environment: The environment that the account belongs to
     func selected(account: Account, environment: String)
 }
 
 
 public extension Notification.Name {
-    /// This notification is if the NotificationBroadcaster is set on the account manager and an account is selected. The "Account" and "Environment" are passed in the UserInfo
+    /// This notification is posted when an account is selected. By default the TestAccountManager uses a notification broadcaster. The "Account" and "Environment" are passed in the UserInfo
     static let AccountSelected = Notification.Name("AccountSelected")
 }
 
