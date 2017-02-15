@@ -6,9 +6,19 @@ import Foundation
 
 /// Simple struct that wraps account data
 public struct Account {
+    
+    /// Represents the user name
     public let userName: String
+    
+    /// Represents the password
     public let password: String
     
+    
+    /// Standard init method
+    ///
+    /// - Parameters:
+    ///   - userName: The user name to use
+    ///   - password: The password to use
     public init(userName: String, password: String) {
         self.userName = userName
         self.password = password

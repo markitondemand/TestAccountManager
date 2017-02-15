@@ -7,16 +7,20 @@ import Foundation
 public class TestAccountManager {
     public typealias EnvironmentAccount = (environment: String, account: Account)
     
-    //TOOD: can refactor this to a single "set" of "EnvironmentAccount" tuple - however, we need to wrap the tuple in a struct as you cant hashable a tuple
+    //TOOD: can refactor this to a single "set" of "EnvironmentAccount" tuple - however, we need to wrap the tuple in a struct as you cant hashable a tuple (but you can than hashable the struct)
     internal typealias AccountStore = [String:Set<Account>]
     internal var allAccounts: AccountStore = [:]
+    
     // Default use the NotificationBroadcaster.
-    // TOOD: unit tests/ possibly better DI for this (maybe someone doesnt want any broadcaster? or just there own?)
     internal var broadcasters: [AccountBroadcaster] = [NotificationBroadcaster()]
     
-    /// The default environment. This is used if you do not supply an environment when registering accounts
+    /// The default environment. This is used if you do not supply an environment when registering accounts.
     public static let DefaultEnvironment = "Test"
     
+    
+    /// Basic Init method. This method takes a Dictionary of environments to a Set of Accounts
+    ///
+    /// - Parameter accounts: The incoming data structure to preload the manager with
     public init(accounts: [String: Set<Account>] = [:]) {
         allAccounts = accounts
     }
@@ -25,7 +29,7 @@ public class TestAccountManager {
 
 // MARK: - Account registration, deregistration and access
 extension TestAccountManager {
-    /// All of the active environments. This will return an empty array if no accoutn is registered
+    /// All of the active environments. This will return an empty array if no accounts are registered
     public var environments: [String] {
         get { return Array(self.allAccounts.keys) }
     }
@@ -41,6 +45,8 @@ extension TestAccountManager {
             return
         }
         envAccounts.insert(account)
+        
+        // due to copy nature of structs we need to reset the instance here.
         allAccounts[environment] = envAccounts
     }
     
@@ -59,6 +65,10 @@ extension TestAccountManager {
         // clean up and remove the empty array if we are out of elements
         if(setOfAccounts.isEmpty) {
             allAccounts[environment] = nil
+        }
+        else {
+            // due to copy nature of structs we need to reset the instance here.
+            allAccounts[environment] = setOfAccounts
         }
     }
     
@@ -86,7 +96,7 @@ extension TestAccountManager {
     }
     
     
-    /// Select an account. The account must be already registered for the given environment or nothing will be done. This will initiate a message to all broadcaster of what account was selected. Call this from your UI if you allow the selection of an account from a table view.
+    /// Select an account. The account must be already registered for the given environment or nothing will be done. This will initiate a message to all active broadcasters of what account was selected. Call this from your UI if you allow the selection of an account from a table view.
     ///
     /// - Parameters:
     ///   - account: The account was selected.
@@ -103,6 +113,10 @@ extension TestAccountManager {
         }
     }
     
+    
+    /// Takes a tuple of (String, Account) and attempts to select the account that matches. If no account is found with the given environment no operation occurs.
+    ///
+    /// - Parameter pair: The pair to select
     public func select(pair: EnvironmentAccount) {
         self.select(account: pair.account, environment:pair.environment)
     }
@@ -111,14 +125,10 @@ extension TestAccountManager {
 // MARK: - IndexPath support
 extension TestAccountManager {
     
-    /// This method will accept an IndexPath and attempt to return an account for it. This method will sort the environment as sections and then sort the accounts by user name for rows.  This will return nil if no account is found.
+    /// Attempts to find an Environment Account pair based on an index path. This method will sort the environment as sections and then sort the accounts by user name for rows. This will return nil if no account is found.
     ///
-    /// - Parameter indexPath: The IndexPath to search
-    /// - Returns: A matching account or nil
-//    public func account(indexPath: IndexPath) -> Account? {
-//        return self.account(indexPath: indexPath)?.0
-//    }
-    
+    /// - Parameter indexPath: The indexpath to search
+    /// - Returns: A matching account pair or nil
     public func account(indexPath: IndexPath) -> EnvironmentAccount? {
         guard let environment = self.mapSectionNumberToEnvironment(section: indexPath.section) else {
             return nil
@@ -141,6 +151,11 @@ extension TestAccountManager {
         return self.mapSectionNumberToEnvironment(section: index)
     }
     
+    
+    /// Returns a count of the accounts found for a given section mapped to an enviornment. The environments will be ordered in ascending order by name.
+    ///
+    /// - Parameter section: The section to check
+    /// - Returns: The count of items. If the section is out of bounds nil is returned
     public func countOfAccountsAt(section: Int) -> Int? {
         guard let environment = self.mapSectionNumberToEnvironment(section: section) else {
             return nil
@@ -160,7 +175,7 @@ extension TestAccountManager {
     }
     
     private func mapSectionNumberToEnvironment(section: Int) -> String? {
-        let sortedEnvironments = self.environments.sorted(by: >)
+        let sortedEnvironments = self.environments.sorted(by: <)
         return sortedEnvironments[safe: section]
     }
 }

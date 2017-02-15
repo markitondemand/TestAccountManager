@@ -50,11 +50,15 @@ class TestAccountManagerTests: XCTestCase {
     }
     
     func testDeregisterAccountForEnvironment() {
-        let account = Account(userName: "abc", password: "password")
-        accountManager.register(account: account, environment: "Test1")
+        let account1 = Account(userName: "abc", password: "password")
+        let account2 = Account(userName: "def", password: "password")
+        accountManager.register(account: account1, environment: "Test1")
+        accountManager.register(account: account2, environment: "Test1")
         
-        // May want this to throw, if no account is found for a given environment... not sure
-        accountManager.deregister(account: account, environment: "Test1")
+        accountManager.deregister(account: account1, environment: "Test1")
+        XCTAssertFalse(accountManager.accounts(environment: "Test1")!.contains(account1))
+        
+        accountManager.deregister(account: account2, environment: "Test1")
         XCTAssertNil(accountManager.accounts(environment: "Test1"))
     }
     
@@ -130,11 +134,21 @@ class TestAccountManagerTests: XCTestCase {
         accountManager.register(account: accountA, environment: "test")
         accountManager.register(account: accountB, environment: "prod")
         accountManager.register(account: accountC, environment: "prod")
+        let mockBroadcaster = MockBroadcaster()
+        accountManager.add(broadcaster: mockBroadcaster)
         
-        XCTAssertEqual(accountManager.account(indexPath: IndexPath(row: 1, section: 1))?.account, accountB)
-        XCTAssertEqual(accountManager.account(indexPath: IndexPath(row: 0, section: 0))?.account, accountA)
+        XCTAssertEqual(accountManager.account(indexPath: IndexPath(row: 1, section: 0))?.account, accountB)
+        XCTAssertEqual(accountManager.account(indexPath: IndexPath(row: 0, section: 1))?.account, accountA)
+        
         XCTAssertNil(accountManager.account(indexPath: IndexPath(row: 99, section: 0)))
         XCTAssertNil(accountManager.account(indexPath: IndexPath(row: 0, section: 99)))
+        
+        XCTAssertEqual(accountManager.countOfAccountsAt(section: 0), 2)
+        XCTAssertNil(accountManager.countOfAccountsAt(section: 2))
+        
+        accountManager.select(pair: ("prod", accountB))
+        XCTAssertTrue(mockBroadcaster.didSelect(account: accountB))
+        
     }
 }
 

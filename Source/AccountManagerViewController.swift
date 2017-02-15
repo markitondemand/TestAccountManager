@@ -6,9 +6,9 @@ import MD_Extensions
 
 extension TestAccountManager {
     static let StoryboardName = "TestAccountStoryboard"
-    /// Generates a simple UI to represent and interact with the TestAccountManager
+    /// Generates a simple UI to represent and interact with the TestAccountManager. This is not a UINavigationController and you may want to wrap this inside of your own UINavigationController before presentation
     ///
-    /// - Returns: The viewcontroller to present in your UI
+    /// - Returns: The viewcontroller to present in your UI.
     public func generateViewController() -> UIViewController {
         let podBundle = Bundle(for: type(of:self))
         let URL = podBundle.url(forResource: "MDTestAccountManager", withExtension: "bundle")!
@@ -21,12 +21,7 @@ extension TestAccountManager {
 
 class AccountManagerViewController: UITableViewController {
     var testAccountManager: TestAccountManager!
-    
-    public init(testAccountManager: TestAccountManager) {
-        self.testAccountManager = testAccountManager
-        super.init(nibName: nil, bundle: nil)
-    }
-    
+        
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -35,14 +30,12 @@ class AccountManagerViewController: UITableViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(AccountManagerViewController.dismissController))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(AccountManagerViewController.dismissController))
     }
     
     func dismissController() {
         self.dismiss(animated: true, completion: nil)
     }
-//    public class AccountTableViewCell: UITableViewCell {
-//    }
 }
 
 extension AccountManagerViewController {
