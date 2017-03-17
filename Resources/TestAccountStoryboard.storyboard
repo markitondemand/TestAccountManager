@@ -4,12 +4,11 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Accounts-->
+        <!--Title-->
         <scene sceneID="XDj-Hb-eRa">
             <objects>
                 <tableViewController id="nzZ-Jf-Fab" customClass="AccountManagerViewController" customModule="MDTestAccountManager" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,7 +40,7 @@
                             <outlet property="delegate" destination="nzZ-Jf-Fab" id="6SA-2J-iSF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Accounts" id="DUR-YH-kye" userLabel="Accounts"/>
+                    <navigationItem key="navigationItem" title="Title" id="gnC-lB-CfE" userLabel="Accounts"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ama-Mz-nCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

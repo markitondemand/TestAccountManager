@@ -19,6 +19,7 @@
 		283BA39D1E4D100700861967 /* CSVParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283BA39C1E4D100700861967 /* CSVParsing.swift */; };
 		283BA39F1E4D150000861967 /* TestCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283BA39E1E4D150000861967 /* TestCSV.swift */; };
 		283BA3A11E4D159400861967 /* accounts.csv in Resources */ = {isa = PBXBuildFile; fileRef = 283BA3A01E4D159400861967 /* accounts.csv */; };
+		2850DE1D1E7C51A300FA0F8D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2850DE1C1E7C51A300FA0F8D /* Extensions.swift */; };
 		2872E9501E4BCC46007E1F9E /* MDTestAccountManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2872E9461E4BCC46007E1F9E /* MDTestAccountManager.framework */; };
 		2872E9551E4BCC46007E1F9E /* AccountManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872E9541E4BCC46007E1F9E /* AccountManagerTests.swift */; };
 		2872E9571E4BCC46007E1F9E /* MDTestAccountManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2872E9491E4BCC46007E1F9E /* MDTestAccountManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,6 +56,7 @@
 		283BA39C1E4D100700861967 /* CSVParsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSVParsing.swift; path = Source/CSVParsing.swift; sourceTree = SOURCE_ROOT; };
 		283BA39E1E4D150000861967 /* TestCSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCSV.swift; sourceTree = "<group>"; };
 		283BA3A01E4D159400861967 /* accounts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = accounts.csv; path = ../../../Desktop/accounts.csv; sourceTree = "<group>"; };
+		2850DE1C1E7C51A300FA0F8D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Source/Extensions.swift; sourceTree = SOURCE_ROOT; };
 		2872E9461E4BCC46007E1F9E /* MDTestAccountManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDTestAccountManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2872E9491E4BCC46007E1F9E /* MDTestAccountManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDTestAccountManager.h; sourceTree = "<group>"; };
 		2872E94A1E4BCC46007E1F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				2872E9631E4CE3E5007E1F9E /* Broadcaster.swift */,
 				283BA39C1E4D100700861967 /* CSVParsing.swift */,
 				283B94E91E53B4C400BD33DD /* AccountManagerViewController.swift */,
+				2850DE1C1E7C51A300FA0F8D /* Extensions.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2872E9641E4CE3E5007E1F9E /* Broadcaster.swift in Sources */,
+				2850DE1D1E7C51A300FA0F8D /* Extensions.swift in Sources */,
 				281F63741E4E362D008F8A7F /* Account.swift in Sources */,
 				2872E9621E4BCC9C007E1F9E /* TestAccountManager.swift in Sources */,
 				283BA39D1E4D100700861967 /* CSVParsing.swift in Sources */,
