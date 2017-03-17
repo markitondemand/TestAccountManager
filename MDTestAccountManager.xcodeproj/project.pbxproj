@@ -7,18 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		280673DE1E54D80600CD3518 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280673DD1E54D80600CD3518 /* AppDelegate.swift */; };
-		280673E01E54D80600CD3518 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280673DF1E54D80600CD3518 /* ViewController.swift */; };
-		280673E31E54D80600CD3518 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280673E11E54D80600CD3518 /* Main.storyboard */; };
-		280673E51E54D80600CD3518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 280673E41E54D80600CD3518 /* Assets.xcassets */; };
-		280673E81E54D80600CD3518 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280673E61E54D80600CD3518 /* LaunchScreen.storyboard */; };
-		280673EE1E54DB3700CD3518 /* Accounts.csv in Resources */ = {isa = PBXBuildFile; fileRef = 280673ED1E54DB3700CD3518 /* Accounts.csv */; };
 		280673F01E5504F900CD3518 /* TestAccountStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 280673EF1E5504F900CD3518 /* TestAccountStoryboard.storyboard */; };
 		281F63741E4E362D008F8A7F /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281F63731E4E362D008F8A7F /* Account.swift */; };
 		283B94EA1E53B4C400BD33DD /* AccountManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B94E91E53B4C400BD33DD /* AccountManagerViewController.swift */; };
 		283BA39D1E4D100700861967 /* CSVParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283BA39C1E4D100700861967 /* CSVParsing.swift */; };
 		283BA39F1E4D150000861967 /* TestCSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283BA39E1E4D150000861967 /* TestCSV.swift */; };
 		283BA3A11E4D159400861967 /* accounts.csv in Resources */ = {isa = PBXBuildFile; fileRef = 283BA3A01E4D159400861967 /* accounts.csv */; };
+		2850DE1D1E7C51A300FA0F8D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2850DE1C1E7C51A300FA0F8D /* Extensions.swift */; };
 		2872E9501E4BCC46007E1F9E /* MDTestAccountManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2872E9461E4BCC46007E1F9E /* MDTestAccountManager.framework */; };
 		2872E9551E4BCC46007E1F9E /* AccountManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872E9541E4BCC46007E1F9E /* AccountManagerTests.swift */; };
 		2872E9571E4BCC46007E1F9E /* MDTestAccountManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2872E9491E4BCC46007E1F9E /* MDTestAccountManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,7 +21,6 @@
 		2872E9641E4CE3E5007E1F9E /* Broadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872E9631E4CE3E5007E1F9E /* Broadcaster.swift */; };
 		41DAD607FE4F60F8EAC4D75B /* Pods_MDTestAccountManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F728F6F51D044394556C667 /* Pods_MDTestAccountManager.framework */; };
 		4CB2720DE4DB9EFE182A803C /* Pods_MDTestAccountManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D16C430739ABB7181224E3BA /* Pods_MDTestAccountManagerTests.framework */; };
-		EDFA5613AA1B61FDF4C7E03A /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 686DC2EE927B8A3B414FA195 /* Pods_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,14 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		280673DB1E54D80600CD3518 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		280673DD1E54D80600CD3518 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		280673DF1E54D80600CD3518 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		280673E21E54D80600CD3518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		280673E41E54D80600CD3518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		280673E71E54D80600CD3518 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		280673E91E54D80600CD3518 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		280673ED1E54DB3700CD3518 /* Accounts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Accounts.csv; sourceTree = "<group>"; };
 		280673EF1E5504F900CD3518 /* TestAccountStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TestAccountStoryboard.storyboard; path = Resources/TestAccountStoryboard.storyboard; sourceTree = SOURCE_ROOT; };
 		280673F21E5514F600CD3518 /* MDTestAccountManager.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; indentWidth = 2; path = MDTestAccountManager.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		281F63731E4E362D008F8A7F /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Source/Account.swift; sourceTree = SOURCE_ROOT; };
@@ -55,6 +41,7 @@
 		283BA39C1E4D100700861967 /* CSVParsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CSVParsing.swift; path = Source/CSVParsing.swift; sourceTree = SOURCE_ROOT; };
 		283BA39E1E4D150000861967 /* TestCSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestCSV.swift; sourceTree = "<group>"; };
 		283BA3A01E4D159400861967 /* accounts.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = accounts.csv; path = ../../../Desktop/accounts.csv; sourceTree = "<group>"; };
+		2850DE1C1E7C51A300FA0F8D /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Source/Extensions.swift; sourceTree = SOURCE_ROOT; };
 		2872E9461E4BCC46007E1F9E /* MDTestAccountManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MDTestAccountManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2872E9491E4BCC46007E1F9E /* MDTestAccountManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDTestAccountManager.h; sourceTree = "<group>"; };
 		2872E94A1E4BCC46007E1F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,14 +62,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		280673D81E54D80600CD3518 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EDFA5613AA1B61FDF4C7E03A /* Pods_Example.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2872E9421E4BCC46007E1F9E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,20 +82,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		280673DC1E54D80600CD3518 /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				280673ED1E54DB3700CD3518 /* Accounts.csv */,
-				280673DD1E54D80600CD3518 /* AppDelegate.swift */,
-				280673DF1E54D80600CD3518 /* ViewController.swift */,
-				280673E11E54D80600CD3518 /* Main.storyboard */,
-				280673E41E54D80600CD3518 /* Assets.xcassets */,
-				280673E61E54D80600CD3518 /* LaunchScreen.storyboard */,
-				280673E91E54D80600CD3518 /* Info.plist */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
 		280673F11E5504FD00CD3518 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				280673F21E5514F600CD3518 /* MDTestAccountManager.podspec */,
-				280673DC1E54D80600CD3518 /* Example */,
 				2872E9481E4BCC46007E1F9E /* MDTestAccountManager */,
 				2872E9531E4BCC46007E1F9E /* MDTestAccountManagerTests */,
 				2872E9471E4BCC46007E1F9E /* Products */,
@@ -151,7 +115,6 @@
 			children = (
 				2872E9461E4BCC46007E1F9E /* MDTestAccountManager.framework */,
 				2872E94F1E4BCC46007E1F9E /* MDTestAccountManagerTests.xctest */,
-				280673DB1E54D80600CD3518 /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +149,7 @@
 				2872E9631E4CE3E5007E1F9E /* Broadcaster.swift */,
 				283BA39C1E4D100700861967 /* CSVParsing.swift */,
 				283B94E91E53B4C400BD33DD /* AccountManagerViewController.swift */,
+				2850DE1C1E7C51A300FA0F8D /* Extensions.swift */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -227,26 +191,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		280673DA1E54D80600CD3518 /* Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 280673EA1E54D80600CD3518 /* Build configuration list for PBXNativeTarget "Example" */;
-			buildPhases = (
-				1897026F1F58EC27733DC7E7 /* [CP] Check Pods Manifest.lock */,
-				280673D71E54D80600CD3518 /* Sources */,
-				280673D81E54D80600CD3518 /* Frameworks */,
-				280673D91E54D80600CD3518 /* Resources */,
-				95A6CEE931745D420CDCAFD5 /* [CP] Embed Pods Frameworks */,
-				E3F606D26113264E958142D2 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Example;
-			productName = Example;
-			productReference = 280673DB1E54D80600CD3518 /* Example.app */;
-			productType = "com.apple.product-type.application";
-		};
 		2872E9451E4BCC46007E1F9E /* MDTestAccountManager */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2872E95A1E4BCC46007E1F9E /* Build configuration list for PBXNativeTarget "MDTestAccountManager" */;
@@ -298,11 +242,6 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Markit;
 				TargetAttributes = {
-					280673DA1E54D80600CD3518 = {
-						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = PM8Y4J45MK;
-						ProvisioningStyle = Automatic;
-					};
 					2872E9451E4BCC46007E1F9E = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = PM8Y4J45MK;
@@ -329,7 +268,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				280673DA1E54D80600CD3518 /* Example */,
 				2872E9451E4BCC46007E1F9E /* MDTestAccountManager */,
 				2872E94E1E4BCC46007E1F9E /* MDTestAccountManagerTests */,
 			);
@@ -337,17 +275,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		280673D91E54D80600CD3518 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				280673E81E54D80600CD3518 /* LaunchScreen.storyboard in Resources */,
-				280673E51E54D80600CD3518 /* Assets.xcassets in Resources */,
-				280673EE1E54DB3700CD3518 /* Accounts.csv in Resources */,
-				280673E31E54D80600CD3518 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2872E9441E4BCC46007E1F9E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,21 +307,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MDTestAccountManagerTests/Pods-MDTestAccountManagerTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1897026F1F58EC27733DC7E7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		2E71858D2BEE15D177D9E0E0 /* [CP] Check Pods Manifest.lock */ = {
@@ -442,21 +354,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MDTestAccountManagerTests/Pods-MDTestAccountManagerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		95A6CEE931745D420CDCAFD5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D163CDD087F38CCC9E62B962 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -472,38 +369,15 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E3F606D26113264E958142D2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		280673D71E54D80600CD3518 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				280673E01E54D80600CD3518 /* ViewController.swift in Sources */,
-				280673DE1E54D80600CD3518 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2872E9411E4BCC46007E1F9E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2872E9641E4CE3E5007E1F9E /* Broadcaster.swift in Sources */,
+				2850DE1D1E7C51A300FA0F8D /* Extensions.swift in Sources */,
 				281F63741E4E362D008F8A7F /* Account.swift in Sources */,
 				2872E9621E4BCC9C007E1F9E /* TestAccountManager.swift in Sources */,
 				283BA39D1E4D100700861967 /* CSVParsing.swift in Sources */,
@@ -530,54 +404,7 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		280673E11E54D80600CD3518 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				280673E21E54D80600CD3518 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		280673E61E54D80600CD3518 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				280673E71E54D80600CD3518 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		280673EB1E54D80600CD3518 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EB2B48031F971CA87D58B64 /* Pods-Example.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PM8Y4J45MK;
-				INFOPLIST_FILE = Example/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.markit.Example;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		280673EC1E54D80600CD3518 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC220C9375916F92B95847EA /* Pods-Example.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PM8Y4J45MK;
-				INFOPLIST_FILE = Example/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.markit.Example;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		2872E9581E4BCC46007E1F9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -749,15 +576,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		280673EA1E54D80600CD3518 /* Build configuration list for PBXNativeTarget "Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				280673EB1E54D80600CD3518 /* Debug */,
-				280673EC1E54D80600CD3518 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2872E9401E4BCC46007E1F9E /* Build configuration list for PBXProject "MDTestAccountManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

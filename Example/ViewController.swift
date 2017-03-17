@@ -10,7 +10,7 @@ import UIKit
 
 import MDTestAccountManager
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, Unwindable {
     @IBOutlet var userNameField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var environmentLabel: UILabel!
@@ -47,6 +47,10 @@ class ViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func unwind(toExit segue: UIStoryboardSegue) {
+        print ("Unwound from fraemwork view")
     }
 }
 

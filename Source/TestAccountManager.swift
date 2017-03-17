@@ -2,6 +2,7 @@
 //
 
 import Foundation
+import MD_Extensions
 
 /// The TestAccountManager handles managing test login accounts for different environments. It also includes support for broadcasting messages in the event an account is selected (i.e. in a menu system, when an account is selected this can than broadcast the selected account and environment so that you can fill in login details automatically)
 public class TestAccountManager {

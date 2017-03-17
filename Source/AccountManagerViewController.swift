@@ -2,23 +2,8 @@
 //
 
 import UIKit
-import MD_Extensions
 
-extension TestAccountManager {
-    static let StoryboardName = "TestAccountStoryboard"
-    /// Generates a simple UI to represent and interact with the TestAccountManager. This is not a UINavigationController and you may want to wrap this inside of your own UINavigationController before presentation
-    ///
-    /// - Returns: The viewcontroller to present in your UI.
-    public func generateViewController() -> UIViewController {
-        let podBundle = Bundle(for: type(of:self))
-        let URL = podBundle.url(forResource: "MDTestAccountManager", withExtension: "bundle")!
-        let resourceBundle = Bundle(url: URL)
-        let controller = UIStoryboard(name: TestAccountManager.StoryboardName, bundle: resourceBundle).instantiateInitialViewController() as! AccountManagerViewController
-        controller.testAccountManager = self
-        return controller
-    }
-}
-
+/// View controller that shows the current test accounts.
 class AccountManagerViewController: UITableViewController {
     var testAccountManager: TestAccountManager!
         
@@ -33,14 +18,21 @@ class AccountManagerViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(AccountManagerViewController.dismissController))
     }
     
-    func dismissController() {
-        self.dismiss(animated: true, completion: nil)
-    }
+
 }
 
 extension AccountManagerViewController {
+    func dismissController() {
+        //        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: SegueIdentifiers.Exit, sender: self)
+    }
+    
     private struct CellIdentifiers {
         static let AccountCell = "AccountCellIdentifier"
+    }
+    
+    private struct SegueIdentifiers {
+        static let Exit = "Exit"
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,6 +61,4 @@ extension AccountManagerViewController {
         self.testAccountManager.selectAccount(indexPath: indexPath)
         self.dismissController()
     }
-    
-    
 }
