@@ -4,7 +4,11 @@
 source 'ssh://git@stash.mgmt.local/ioslib/markitpodspecs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
+
+workspace 'MDTestAccountManager.xcworkspace'
+
 target 'Example' do
+  project 'Example/Example.xcodeproj'
   use_frameworks!
   
   pod 'MDTestAccountManager', :path => './MDTestAccountManager.podspec'

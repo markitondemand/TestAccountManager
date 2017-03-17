@@ -68,9 +68,11 @@
                         <outlet property="environmentLabel" destination="UUg-2B-eUf" id="gMN-5h-67s"/>
                         <outlet property="passwordField" destination="oBK-wT-6vl" id="kNa-Sc-SeF"/>
                         <outlet property="userNameField" destination="nOn-tp-GeM" id="uXM-TV-KRW"/>
+                        <segue destination="84S-Yp-zg6" kind="unwind" identifier="Exit" unwindAction="unwindToExit:" id="gIp-dq-C4z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="84S-Yp-zg6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>

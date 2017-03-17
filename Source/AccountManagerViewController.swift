@@ -18,12 +18,15 @@ class AccountManagerViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(AccountManagerViewController.dismissController))
     }
     
-    func dismissController() {
-        self.dismiss(animated: true, completion: nil)
-    }
+
 }
 
 extension AccountManagerViewController {
+    func dismissController() {
+        //        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: SegueIdentifiers.Exit, sender: self)
+    }
+    
     private struct CellIdentifiers {
         static let AccountCell = "AccountCellIdentifier"
     }

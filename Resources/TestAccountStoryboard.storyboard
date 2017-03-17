@@ -41,8 +41,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="gnC-lB-CfE" userLabel="Accounts"/>
+                    <connections>
+                        <segue destination="bQ8-0U-2Nf" kind="unwind" identifier="Exit" unwindAction="unwindToExit:" id="Kay-ao-Epr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ama-Mz-nCE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bQ8-0U-2Nf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="76" y="68"/>
         </scene>

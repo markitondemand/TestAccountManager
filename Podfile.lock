@@ -1,6 +1,6 @@
 PODS:
   - CSV.swift (1.1.2)
-  - MD-Extensions (0.3)
+  - MD-Extensions (0.6)
   - MDTestAccountManager (0.4):
     - CSV.swift (~> 1.0)
     - MD-Extensions
@@ -14,9 +14,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CSV.swift: 0aad3b06980034c8fa296456b708ac9128ebbdf9
-  MD-Extensions: 2581966459488b28bfde69897052d5d29ca274fe
+  MD-Extensions: b6075b1f202b7317f8060424ea9fc8b53d9ccd06
   MDTestAccountManager: b37bddabe513f1d78f021aeef53be50dd4d427ea
 
-PODFILE CHECKSUM: a3005e9186a9e39586c1f1d82ea11943f3b2dba1
+PODFILE CHECKSUM: 89b2ad53f8b42bd031c04c0fac513d7d05f25f3d
 
 COCOAPODS: 1.2.0
