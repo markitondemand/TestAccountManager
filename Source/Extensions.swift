@@ -20,18 +20,21 @@ extension Bundle {
     internal static let testAccountManagerResourceBundleName = "MDTestAccountManager"
     
     internal static var testAccountManagerResourceBundle: Bundle {
-        return BundleAccessor().resourceBundleNamed(Bundle.testAccountManagerResourceBundleName)!
+        return BundleAccessor().resourceBundleNamed(Bundle.testAccountManagerResourceBundleName)
     }
     
     /// Needed to work around an issue with cocoapods where they dont let you set your own bundle identifier
     private class BundleAccessor {
-        func resourceBundleNamed(_ name: String) -> Bundle? {
+        func resourceBundleNamed(_ name: String) -> Bundle {
             let frameworkBundle = Bundle(for: type(of: self))
             
             guard let bundleUrl = frameworkBundle.url(forResource: name, withExtension: "bundle") else {
-                return nil
+                return frameworkBundle
             }
-            return Bundle(url: bundleUrl)
+            guard let resourceBundle = Bundle(url: bundleUrl) else {
+                return frameworkBundle
+            }
+            return resourceBundle
         }
     }
 }
