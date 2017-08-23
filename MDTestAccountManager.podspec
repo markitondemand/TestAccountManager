@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
     'MDTestAccountManager' => ['Resources/*.storyboard']
   }
   
-  s.dependency 'CSV.swift', '~> 1.0'
+  s.dependency 'CSV.swift', '~> 2.0'
   s.dependency 'MD-Extensions'
 end

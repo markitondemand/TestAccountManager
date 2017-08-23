@@ -54,7 +54,7 @@ extension TestAccountManager {
     // Helper initializer that coalesces the above initializers.
     private convenience init?(parsedCSV: CSV) {
         var structure: [String: Set<Account>] = [:]
-        var parsedCSV = parsedCSV
+        let parsedCSV = parsedCSV
         
         while let _ = parsedCSV.next() {
             guard let environment = parsedCSV[Token.Environment],
